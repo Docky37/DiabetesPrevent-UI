@@ -1,0 +1,147 @@
+<div class="block">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+            </div>
+            <div class="column is-four-fifths">
+                <div class="container">
+                    <br />
+                    <div id="page-title" class="box">
+                        <h1 class="title is-4">Manage Patients - Show patient</h1>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-half">
+                            <div class="field">
+                                <label class="label is-medium">First Name</label>
+                                <div class="control">
+                                    <input class="input is-medium" type="text" placeholder="First name" value="{{ patient.firstName }}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-half">
+                            <div class="field">
+                                <label class="label is-medium">Last Name</label>
+                                <div class="control">
+                                    <input class="input is-medium" type="text" placeholder="Last Name" value="{{ patient.lastName }}" disabled>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="col-content" class="columns">
+                        <div class="column is-2">
+                            <div class="field">
+                                <div class="columns">
+                                    <div class="column is-3">
+                                        <label class="label is-medium">Age</label>
+                                    </div>
+                                    <div class="column is-6">
+                                        <div class="control">
+                                            <input class="input is-medium" type="text" placeholder="" value="-" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-4">
+                            <div class="field">
+                                <div class="columns">
+                                    <div class="column is-4">
+                                        <label class="label is-medium">Birth date</label>
+                                    </div>
+                                    <div class="column">
+                                        <div class="control">
+                                            <input class="input is-medium" type="text" placeholder="YYYY/MM/DD" value="{{ patient.birthDate }}" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-5">
+                            <div class="field">
+                                <div class="columns">
+                                    <div class="column is-2">
+                                        <label class="label is-medium">Gender</label>
+                                    </div>
+                                    <div class="column is-2">
+                                        <div class="control">
+                                            <input class="input is-medium" type="text" placeholder="M/F" value="{{ patient.gender }}" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <div class="field">
+                                <label class="label">Phone</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Phone number" value="{{ patient.phone }}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="field">
+                                <label class="label">Address line 1</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Address line 1" value="{{ patient.addressLine1 }}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                        </div>
+                        <div class="column">
+                            <div class="field">
+                                <label class="label">Address line 2</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Address line 2" value="{{ patient.addressLine2 }}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <div class="field">
+                                <label class="label">Zip code</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Zip Code" value="{{ patient.zipCode }}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="field">
+                                <label class="label">City</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="City" value="{{ patient.city }}" disabled>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+            </div>
+        </div>
+        <div>
+        </div>
+        <div class="columns">
+            <div class="column">
+            </div>
+            <div class="column is-5">
+                <a href="patients-update/id?patientId={{ patient.patientId }}">
+                    <button id="left-btn" class="button is-info">Edit</button>&nbsp;
+                </a>
+                <a href="patients">
+                    <button id="right-btn" class="button is-success">Back to list</button>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                                                                                  
