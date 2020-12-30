@@ -10,13 +10,17 @@
                         <div id="page-title" class="box">
                             <h1 class="title is-4">Manage Patients - Show patient</h1>
                         </div>
+            <div hidden>
+                <input class="input is-small" type="text" id="patientId" required [(ngModel)]="patient.patientId"
+                    name="patientId" #patientId="ngModel">
+            </div>
                         <div class="columns">
                             <div class="column is-half">
                                 <div class="field">
                                     <label for="firstName" class="label is-medium">First Name</label>
                                     <div class="control">
-                                        <input class="input is-medium" type="text" placeholder="First name"
-                                            value="{{ patient.firstName }}" name="firstName" ngModel>
+                                        <input class="input is-medium" type="text" id="firstName" required
+                                            [(ngModel)]="patient.firstName" name="firstName" #firstName="ngModel">
                                     </div>
                                 </div>
                             </div>
@@ -24,8 +28,8 @@
                                 <div class="field">
                                     <label for="lastName" class="label is-medium">Last Name</label>
                                     <div class="control">
-                                        <input class="input is-medium" type="text" placeholder="Last Name"
-                                            value="{{ patient.lastName }}" name="lastName" ngModel>
+                                        <input class="input is-medium" type="text" id="lastName" required
+                                            [(ngModel)]="patient.lastName" name="lastName" #lastName="ngModel">
                                     </div>
                                 </div>
 
@@ -55,8 +59,9 @@
                                         </div>
                                         <div class="column">
                                             <div class="control">
-                                                <input class="input is-medium" type="text" placeholder="YYYY/MM/DD"
-                                                    value="{{ patient.birthDate }}" name="birthDate" ngModel>
+                                                <input class="input is-medium" type="text" id="birthDate" required
+                                                    [(ngModel)]="patient.birthDate" name="birthDate"
+                                                    #birthDate="ngModel">
                                             </div>
                                         </div>
                                     </div>
@@ -70,8 +75,8 @@
                                         </div>
                                         <div class="column is-2">
                                             <div class="control">
-                                                <input class="input is-medium" type="text" placeholder="M/F"
-                                                    value="{{ patient.gender }}" name="gender" ngModel>
+                                                <input class="input is-medium" type="text" id="gender" required
+                                                    [(ngModel)]="patient.gender" name="gender" #gender="ngModel">
                                             </div>
                                         </div>
                                     </div>
@@ -84,8 +89,8 @@
                                 <div class="field">
                                     <label class="label">Phone</label>
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="Phone number"
-                                            value="{{ patient.phone }}" name="phone" ngModel>
+                                        <input class="input is-medium" type="text" id="phone" required
+                                            [(ngModel)]="patient.phone" name="phone" #phone="ngModel">
                                     </div>
                                 </div>
                             </div>
@@ -93,8 +98,9 @@
                                 <div class="field">
                                     <label class="label">Address line 1</label>
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="Address line 1"
-                                            value="{{ patient.addressLine1 }}" name="addressLine1" ngModel>
+                                        <input class="input is-medium" type="text" id="addressLine1" required
+                                            [(ngModel)]="patient.addressLine1" name="addressLine1"
+                                            #addressLine1="ngModel">
                                     </div>
                                 </div>
                             </div>
@@ -106,8 +112,9 @@
                                 <div class="field">
                                     <label class="label">Address line 2</label>
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="Address line 2"
-                                            value="{{ patient.addressLine2 }}" name="addressLine2" ngModel>
+                                        <input class="input is-medium" type="text" id="addressLine2" required
+                                            [(ngModel)]="patient.addressLine2" name="addressLine2"
+                                            #addressLine2="ngModel">
                                     </div>
                                 </div>
                             </div>
@@ -117,36 +124,30 @@
                                 <div class="field">
                                     <label class="label">Zip code</label>
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="Zip Code"
-                                            value="{{ patient.zipCode }}" name="zipCode" ngModel>
+                                        <input class="input is-medium" type="text" id="zipCode" required
+                                            [(ngModel)]="patient.zipCode" name="zipCode" #zipCode="ngModel">
                                     </div>
                                 </div>
                             </div>
                             <div class="column">
                                 <div class="field">
                                     <label class="label">City</label>
-                                    <div class="control">
-                                        <input class="input" type="text" placeholder="City" value="{{ patient.city }}"
-                                             name="city" ngModel>
-                                    </div>
+                                    <input class="input is-medium" type="text" id="city" required
+                                        [(ngModel)]="patient.city" name="city" #city="ngModel">
                                 </div>
-
                             </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="column">
-
                 </div>
-            </div>
-            <div>
-
             </div>
             <div class="columns">
                 <div class="column">
                 </div>
                 <div class="column is-5">
-                    <a href="patients/id?patientId={{ patient.patientId }}">
+                    <a href="http://localhost:4200/patients">
                         <button id="left-btn" class="button is-danger">Cancel</button>&nbsp;
                     </a>
                     <button type="submit" id="right-btn" class="button is-success">Save</button>

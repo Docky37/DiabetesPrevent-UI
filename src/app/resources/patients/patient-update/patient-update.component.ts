@@ -31,6 +31,6 @@ export class PatientUpdateComponent implements OnInit {
 
   updatePatient(form: NgForm) {
     console.log(form.value);
-    this.patientService.save(form.value);
+    this.patientService.modify(form.value);
   }
 }

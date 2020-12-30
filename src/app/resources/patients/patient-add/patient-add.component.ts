@@ -13,21 +13,22 @@ import { NgForm } from '@angular/forms';
 
 export class PatientAddComponent implements OnInit {
 
-  patient: Patient;
+  model = {
+      firstName: '',
+      lastName: '',
+      birthDate: '',
+      gender: ''
+  }
 
   constructor(
     private patientService: PatientService,
     ) { }
 
   ngOnInit() {
-    this.patientService.add().subscribe((res: Patient) => {
-        this.patient = res;
-    });
   }
 
   addPatient(form: NgForm) {
     console.log(form.value);
     this.patientService.save(form.value);
-    form.reset();
   }
 }

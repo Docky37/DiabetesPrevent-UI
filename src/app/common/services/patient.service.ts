@@ -39,7 +39,21 @@ export class PatientService {
     }
 
     save(patient: Patient) {
-        return this.http.post(environment.apiBaseUrl + 'patients', patient);
+        console.log(patient);
+        this.http.post(environment.apiBaseUrl + 'patients', patient)
+            .subscribe((result) => {
+                console.log("result", result);
+        });
+        console.warn(patient);
+    }
+
+    modify(patient: Patient) {
+        console.log(patient);
+        this.http.put(environment.apiBaseUrl + 'patients/id?patientId=' + patient.patientId, patient)
+            .subscribe((result) => {
+                console.log("result", result);
+        });
+        console.warn(patient);
     }
 
 }

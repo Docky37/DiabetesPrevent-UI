@@ -15,8 +15,8 @@
                                 <div class="field">
                                     <label for="firstName" class="label is-medium">First Name</label>
                                     <div class="control">
-                                        <input class="input is-medium" type="text" placeholder="First name"
-                                            name="firstName" ngModel>
+                                        <input class="input is-medium" type="text" id="firstName" required
+                                            [(ngModel)]="model.firstName" name="firstName" #firstName="ngModel">
                                     </div>
                                 </div>
                             </div>
@@ -24,8 +24,8 @@
                                 <div class="field">
                                     <label for="lastName" class="label is-medium">Last Name</label>
                                     <div class="control">
-                                        <input class="input is-medium" type="text" placeholder="Last Name"
-                                            name="lastName" ngModel>
+                                        <input class="input is-medium" type="text" id="lastName" required
+                                            [(ngModel)]="model.lastName" name="lastName" #lastName="ngModel">
                                     </div>
                                 </div>
 
@@ -40,8 +40,7 @@
                                         </div>
                                         <div class="column is-6">
                                             <div class="control">
-                                                <input class="input is-medium" type="text" placeholder=""
-                                                    disabled>
+                                                <input class="input is-medium" type="text" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -55,8 +54,9 @@
                                         </div>
                                         <div class="column">
                                             <div class="control">
-                                                <input class="input is-medium" type="text" placeholder="YYYY/MM/DD"
-                                                    name="birthDate" ngModel>
+                                                <input class="input is-medium" type="text" id="birthDate" required
+                                                    [(ngModel)]="model.birthDate" name="birthDate"
+                                                    #birthDate="ngModel">
                                             </div>
                                         </div>
                                     </div>
@@ -70,8 +70,8 @@
                                         </div>
                                         <div class="column is-2">
                                             <div class="control">
-                                                <input class="input is-medium" type="text" placeholder="M/F"
-                                                    name="gender" ngModel>
+                                                <input class="input is-medium" type="text" id="gender" required
+                                                    [(ngModel)]="model.gender" name="gender" #gender="ngModel">
                                             </div>
                                         </div>
                                     </div>
