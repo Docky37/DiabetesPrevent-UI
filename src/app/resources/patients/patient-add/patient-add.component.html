@@ -55,8 +55,7 @@
                                         <div class="column">
                                             <div class="control">
                                                 <input class="input is-medium" type="text" id="birthDate" required
-                                                    [(ngModel)]="model.birthDate" name="birthDate"
-                                                    #birthDate="ngModel">
+                                                    [(ngModel)]="model.birthDate" name="birthDate" #birthDate="ngModel">
                                             </div>
                                         </div>
                                     </div>
@@ -70,8 +69,11 @@
                                         </div>
                                         <div class="column is-2">
                                             <div class="control">
-                                                <input class="input is-medium" type="text" id="gender" required
+                                                <select class="input is-medium" type="text" id="gender" required
                                                     [(ngModel)]="model.gender" name="gender" #gender="ngModel">
+                                                    <option value="M">M</option>
+                                                    <option value="F">F</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -92,10 +94,10 @@
                 <div class="column">
                 </div>
                 <div class="column is-5">
-                    <a href="patients">
+                    <a routerLink="/patients">
                         <button id="left-btn" class="button is-danger">Cancel</button>&nbsp;
                     </a>
-                    <button type="submit" id="right-btn" class="button is-success">Save</button>
+                    <button type="submit" id="right-btn" class="button is-success" [disabled]="f.invalid">Save</button>
                 </div>
             </div>
         </form>

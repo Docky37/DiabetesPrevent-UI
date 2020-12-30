@@ -1,3 +1,7 @@
+#add-btn {
+    border-radius: 0.7em;
+}
+
 #left-btn, #right-btn {
     width: 70px;
 }
@@ -10,4 +14,8 @@
 #right-btn {
     border-top-right-radius: 0.7em;
     border-bottom-right-radius: 0.7em;
+}
+
+#listing .column {
+    border-bottom: 1px solid #cccccc;
 }

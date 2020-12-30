@@ -42,7 +42,7 @@ export class PatientService {
         console.log(patient);
         this.http.post(environment.apiBaseUrl + 'patients', patient)
             .subscribe((result) => {
-                console.log("result", result);
+                console.log('result', result);
         });
         console.warn(patient);
     }
@@ -51,9 +51,8 @@ export class PatientService {
         console.log(patient);
         this.http.put(environment.apiBaseUrl + 'patients/id?patientId=' + patient.patientId, patient)
             .subscribe((result) => {
-                console.log("result", result);
+                console.log('result', result);
         });
-        console.warn(patient);
     }
 
 }

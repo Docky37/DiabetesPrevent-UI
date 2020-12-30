@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from 'src/app/common/services/patient.service';
-import { Patient } from '../../../common/interfaces/patient';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 
@@ -22,6 +22,7 @@ export class PatientAddComponent implements OnInit {
 
   constructor(
     private patientService: PatientService,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -30,5 +31,6 @@ export class PatientAddComponent implements OnInit {
   addPatient(form: NgForm) {
     console.log(form.value);
     this.patientService.save(form.value);
+    this.router.navigate(['patients']);
   }
 }
