@@ -1,0 +1,105 @@
+<div class="block">
+    <div class="container">
+        <form (ngSubmit)="addPatient(f)" #f="ngForm">
+            <div class="columns">
+                <div class="column">
+                </div>
+                <div class="column is-four-fifths">
+                    <div class="container">
+                        <br />
+                        <div id="page-title" class="box">
+                            <h1 class="title is-4">Manage Patients - Add a patient</h1>
+                        </div>
+                        <div class="columns">
+                            <div class="column is-half">
+                                <div class="field">
+                                    <label for="firstName" class="label is-medium">First Name</label>
+                                    <div class="control">
+                                        <input class="input is-medium" type="text" id="firstName" required
+                                            [(ngModel)]="model.firstName" name="firstName" #firstName="ngModel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-half">
+                                <div class="field">
+                                    <label for="lastName" class="label is-medium">Last Name</label>
+                                    <div class="control">
+                                        <input class="input is-medium" type="text" id="lastName" required
+                                            [(ngModel)]="model.lastName" name="lastName" #lastName="ngModel">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="col-content" class="columns">
+                            <div class="column is-2">
+                                <div class="field">
+                                    <div class="columns">
+                                        <div class="column is-3">
+                                            <label class="label is-medium">Age</label>
+                                        </div>
+                                        <div class="column is-6">
+                                            <div class="control">
+                                                <input class="input is-medium" type="text" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                                <div class="field">
+                                    <div class="columns">
+                                        <div class="column is-4">
+                                            <label class="label is-medium">Birth date</label>
+                                        </div>
+                                        <div class="column">
+                                            <div class="control">
+                                                <input class="input is-medium" type="text" id="birthDate" required
+                                                    [(ngModel)]="model.birthDate" name="birthDate" #birthDate="ngModel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-5">
+                                <div class="field">
+                                    <div class="columns">
+                                        <div class="column is-2">
+                                            <label class="label is-medium">Gender</label>
+                                        </div>
+                                        <div class="column is-2">
+                                            <div class="control">
+                                                <select class="input is-medium" type="text" id="gender" required
+                                                    [(ngModel)]="model.gender" name="gender" #gender="ngModel">
+                                                    <option value="M">M</option>
+                                                    <option value="F">F</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="column">
+
+                </div>
+            </div>
+            <div>
+
+            </div>
+            <div class="columns">
+                <div class="column">
+                </div>
+                <div class="column is-5">
+                    <a routerLink="/patients">
+                        <button id="left-btn" class="button is-danger">Cancel</button>&nbsp;
+                    </a>
+                    <button type="submit" id="right-btn" class="button is-success" [disabled]="f.invalid">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
