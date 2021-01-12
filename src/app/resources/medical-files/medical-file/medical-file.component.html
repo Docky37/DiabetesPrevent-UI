@@ -1,0 +1,83 @@
+<div class="block">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+            </div>
+            <div class="column is-four-fifths">
+                <div class="container">
+                    <br />
+                    <form [formGroup]="medicalForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+                        <div class="columns">
+                            <div class="column is-two-fifths">
+                                <label for="firstName" class="label is-medium">First Name</label>
+                                <div class="control">
+                                    <input class="input is-medium" id="firstName" formControlName="firstName" disabled>
+                                </div>
+                            </div>
+                            <div class="column is-two-fifths">
+                                <label for="lastName" class="label is-medium">Last Name</label>
+                                <div class="control">
+                                    <input class="input is-medium" id="lastName" formControlName="lastName" disabled>
+                                </div>
+                            </div>
+                            <div class="column is-one-fifths">
+                                <label for="age" class="label is-medium">Age</label>
+                                <div class="control">
+                                    <input class="input is-medium" id="age" formControlName="age" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="columns">
+                            <div class="column is-12">
+                                <label for="visits" class="label is-medium">Visits</label>
+                                <div class="" formArrayName="visits">
+                                    <div *ngFor="let item of medicalForm.controls.visits['controls']; let i=index"
+                                        [formGroupName]="i">
+                                        <div class="columns">
+                                            <!-- <a [routerLink] (click)="removeVisit(i)">remove</a>  -->
+                                            <div class="column is-one-fifths">
+                                                <input class="input is-success" type="text" id="task{{i}}"
+                                                    formControlName="visitDate">
+                                            </div>
+                                            <div class="column is-one-fifths">
+                                                <input class="input is-success" type="text" id="task{{i}}"
+                                                    formControlName="practitioner">
+                                            </div>
+                                            <div class="column is-three-fifths"> 
+                                            </div>
+                                        </div>
+                                        <div class="columns">
+                                            <input class="input is-medium is-info" type="text" id="task{{i}}"
+                                                formControlName="notes">
+                                        </div>
+                                        <hr style="outline-color:blue;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column">
+                            </div>
+                            <div class="column is-5">
+                                <button type="submit" id="left-btn" class="button is-warning">Save</button>&nbsp;
+                                <button id="middle-btn" class="button is-info">Load Data</button>&nbsp;
+
+                                <a routerLink="/patients">
+                                    <button id="right-btn" class="button is-success">Back to list</button>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="column">
+            </div>
+        </div>
+
+        <div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,8 @@ import { PatientListComponent } from './resources/patients/patient-list/patient-
 import { PatientComponent } from './resources/patients/patient/patient.component';
 import { PatientUpdateComponent } from './resources/patients/patient-update/patient-update.component';
 import { PatientAddComponent } from './resources/patients/patient-add/patient-add.component';
+import { MedicalFileComponent } from './resources/medical-files/medical-file/medical-file.component';
+import { MedicalFileEditComponent } from './resources/medical-files/medical-file-edit/medical-file-edit.component';
 
 export const appRoutes: Routes = [
   {
@@ -25,5 +27,14 @@ export const appRoutes: Routes = [
   {
     path: 'patients-add',
     component: PatientAddComponent
+  },
+  {
+    path: 'medical-files/:idPatient',
+    component: MedicalFileComponent
+  },
+  {
+    path: 'medical-files-edit/:idPatient',
+    component: MedicalFileEditComponent
   }
+
 ];

@@ -134,7 +134,10 @@
             </div>
             <div class="column is-5">
                 <a href="patients-update/id?patientId={{ patient.patientId }}">
-                    <button id="left-btn" class="button is-info">Edit</button>&nbsp;
+                    <button id="left-btn" class="button is-warning">Edit</button>&nbsp;
+                </a>
+                <a href="medical-files/id?patientId={{ patient.patientId }}">
+                    <button id="middle-btn" class="button is-info">Medical file</button>&nbsp;
                 </a>
                 <a routerLink="/patients">
                     <button id="right-btn" class="button is-success">Back to list</button>
