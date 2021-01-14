@@ -5,7 +5,7 @@ import { PatientComponent } from './resources/patients/patient/patient.component
 import { PatientUpdateComponent } from './resources/patients/patient-update/patient-update.component';
 import { PatientAddComponent } from './resources/patients/patient-add/patient-add.component';
 import { MedicalFileComponent } from './resources/medical-files/medical-file/medical-file.component';
-import { MedicalFileEditComponent } from './resources/medical-files/medical-file-edit/medical-file-edit.component';
+import { MedicalFileAddComponent } from './resources/medical-files/medical-file-add/medical-file-add.component';
 
 export const appRoutes: Routes = [
   {
@@ -33,8 +33,8 @@ export const appRoutes: Routes = [
     component: MedicalFileComponent
   },
   {
-    path: 'medical-files-edit/:idPatient',
-    component: MedicalFileEditComponent
-  }
+    path: 'medical-files-add',
+    component: MedicalFileAddComponent
+  },
 
 ];

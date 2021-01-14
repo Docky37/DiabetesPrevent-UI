@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Patient } from '../interfaces/patient';
+import { PatientAddComponent } from '../../resources/patients/patient-add/patient-add.component';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 
@@ -9,9 +10,9 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class PatientService {
-
+    static currentPatientId: string;
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
     ) { }
 
     list(): Observable<Patient[]> {
@@ -38,20 +39,21 @@ export class PatientService {
         );
     }
 
-    save(patient: Patient) {
+    save(patientAddComponent: PatientAddComponent, patient: Patient) {
         console.log(patient);
-        this.http.post(environment.apiBaseUrl + 'patients', patient)
+        this.http.post<Patient>(environment.apiBaseUrl + 'patients', patient)
             .subscribe((result) => {
-                console.log('result', result);
+                console.log('POST result: ', result);
+                PatientService.currentPatientId = result.patientId;
+                patientAddComponent.addMedicalFile();
         });
-        console.warn(patient);
     }
 
     modify(patient: Patient) {
         console.log(patient);
         this.http.put(environment.apiBaseUrl + 'patients/id?patientId=' + patient.patientId, patient)
             .subscribe((result) => {
-                console.log('result', result);
+                console.log('PUT result: ', result);
         });
     }
 

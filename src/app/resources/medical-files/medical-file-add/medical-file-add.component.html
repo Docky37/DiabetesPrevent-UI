@@ -7,12 +7,11 @@
                 <div class="container">
                     <br />
                     <div id="page-title" class="box">
-                        <h1 class="title is-4">Medical file</h1>
+                        <h1 class="title is-4">Medical file - Add a medical file to the new patient</h1>
                     </div>
                     <form [formGroup]="medicalForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
                         <input class="input is-small" id="patientId" formControlName="patientId" disabled="true">
                         <input class="input is-small" id="birthDate" formControlName="birthDate" disabled="true">
-
                         <div class="columns">
                             <div class="column is-two-fifths">
                                 <label for="firstName" class="label is-medium">First Name</label>
@@ -49,53 +48,44 @@
                         </div>
                         <br />
                         <div class="columns">
-                            <div class="column">
-                                <label for="visits" class="label is-medium">Medical history - Visit list </label>
-                            </div>
-                            <div class="column is-2">
-                                <button type="button" id="middle-btn" class="button is-info"
-                                    (click)="addVisitButtonClick()">Add new
-                                    visit</button>&nbsp;
-                            </div>
-                        </div>
-                        <div class="columns">
                             <div class="column is-12">
-                                <hr class="style-one">
+                                <label for="visits" class="label is-medium">Visits</label>
                                 <div class="" formArrayName="visits">
-                                    <div *ngFor="let item of medicalForm.controls.visits['controls']; let i=index"
-                                        [formGroupName]="i">
-                                        <div class="columns">
-                                            <div class="column is-two-fifths">
-                                                <input class="input is-success" type="text" id="task{{i}}"
-                                                    formControlName="visitDate">
+                                        <div *ngFor="let item of medicalForm.controls.visits['controls']; let i=index"
+                                            [formGroupName]="i">
+                                            <div class="columns">
+                                                <!-- <a [routerLink] (click)="removeVisit(i)">remove</a> -->
+                                                <div class="column is-one-fifths">
+                                                    <input class="input is-success" type="text" id="task{{i}}"
+                                                        formControlName="visitDate">
+                                                </div>
+                                                <div class="column is-one-fifths">
+                                                    <input class="input is-success" type="text" id="task{{i}}"
+                                                        formControlName="practitioner">
+                                                </div>
+                                                <div class="column is-three-fifths">
+                                                </div>
                                             </div>
-                                            <div class="column is-two-fifths">
-                                                <input class="input is-success" type="text" id="task{{i}}"
-                                                    formControlName="practitioner">
+                                            <div class="columns">
+                                                <input class="input is-medium is-info" type="text" id="task{{i}}"
+                                                    formControlName="notes">
                                             </div>
-                                            <div class="column is-one-fifths">
-                                            <button type="button"  id="removeBtn" (click)="removeVisit(i)">
-                                                <span class="icon-text has-text-danger"><i class="far fa-window-close is-medium"></i></span>
-
-                                            </button>
-                                            </div>
+                                            <hr style="outline-color:blue;">
                                         </div>
-                                        <div class="columns">
-                                            <textarea id="notes" class="input is-medium is-info" type="text"
-                                                id="task{{i}}" formControlName="notes"></textarea>
-                                        </div>
-                                        <hr class="style-one">
                                     </div>
-                                </div>
                             </div>
                         </div>
+
                         <div class="columns">
                             <div class="column">
                             </div>
-                            <div class="column is-3">
+                            <div class="column is-5">
                                 <button type="submit" id="left-btn" class="button is-success">Save</button>&nbsp;
-                                <button type="button" id="right-btn" class="button is-info" (click)="goBackList()">Back to
-                                    list</button>
+
+                                <a routerLink="/patients">
+                                    <button id="right-btn" class="button is-danger">Cancel</button>
+                                </a>
+
                             </div>
                         </div>
 

@@ -17,7 +17,32 @@ export class MedicalFileService {
     show(id: string): Observable<MedicalFile> {
         console.log('MedicalFileService - Show');
         return this.http.get<MedicalFile>(environment.apiBaseUrl2 + 'medicalFiles?patientId=' + id)
-                .pipe(catchError(this.handleError));
+            .pipe(catchError(this.handleError));
+    }
+
+    saveMedicalFile(medicalFile: MedicalFile): Observable<MedicalFile>  {
+        console.log('MedicalFileService - Save');
+        console.log(medicalFile);
+
+        return this.http.post<MedicalFile>(environment.apiBaseUrl2 + 'medicalFiles', medicalFile, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        })
+            .pipe(catchError(this.handleError));
+    }
+
+
+    updateMedicalFile(medicalFile: MedicalFile): Observable<MedicalFile> {
+        console.log('MedicalFileService - Update');
+        console.log(medicalFile);
+
+        return this.http.put<MedicalFile>(environment.apiBaseUrl2 + 'medicalFiles?patientId=' + medicalFile.patientId, medicalFile, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        })
+            .pipe(catchError(this.handleError));
     }
 
     private handleError(errorResponse: HttpErrorResponse) {

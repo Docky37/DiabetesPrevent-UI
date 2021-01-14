@@ -16,7 +16,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PatientAddComponent } from './resources/patients/patient-add/patient-add.component';
 import { MedicalFileComponent } from './resources/medical-files/medical-file/medical-file.component';
 import { MedicalFileAddComponent } from './resources/medical-files/medical-file-add/medical-file-add.component';
-import { MedicalFileEditComponent } from './resources/medical-files/medical-file-edit/medical-file-edit.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +29,7 @@ import { MedicalFileEditComponent } from './resources/medical-files/medical-file
     PatientAddComponent,
     MedicalFileComponent,
     MedicalFileAddComponent,
-    MedicalFileEditComponent
-  ],
+   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule, FormsModule,
     ReactiveFormsModule

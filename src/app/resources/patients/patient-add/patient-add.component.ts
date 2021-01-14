@@ -5,32 +5,36 @@ import { NgForm } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-patient-add',
-  templateUrl: './patient-add.component.html',
-  styleUrls: ['./patient-add.component.scss'],
-  providers: [PatientService]
+    selector: 'app-patient-add',
+    templateUrl: './patient-add.component.html',
+    styleUrls: ['./patient-add.component.scss'],
+    providers: [PatientService]
 })
 
 export class PatientAddComponent implements OnInit {
 
-  model = {
-      firstName: '',
-      lastName: '',
-      birthDate: '',
-      gender: ''
-  }
+    model = {
+        firstName: '',
+        lastName: '',
+        birthDate: '',
+        gender: ''
+    };
 
-  constructor(
-    private patientService: PatientService,
-    private router: Router
+    constructor(
+        private patientService: PatientService,
+        private router: Router,
     ) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  addPatient(form: NgForm) {
-    console.log(form.value);
-    this.patientService.save(form.value);
-    this.router.navigate(['patients']);
-  }
+    addPatient(form: NgForm) {
+        console.log(form.value);
+        this.patientService.save(this, form.value);
+
+    }
+
+    addMedicalFile() {
+        this.router.navigate(['medical-files-add']);
+    }
 }
