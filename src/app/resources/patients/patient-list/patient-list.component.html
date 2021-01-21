@@ -20,7 +20,7 @@
                             </a>
                         </div>
                     </div>
-                    <div id="col-content" class="columns" *ngFor="let patient of patients"
+                    <div id="col-content" class="columns" *ngFor="let patient of patients | sortBy:'asc': 'lastName'"
                         [routerLink]="['patients','patient.patientId']">
                         <div class="column is-2">{{ patient.firstName }}</div>
                         <div class="column is-2">{{ patient.lastName }}</div>

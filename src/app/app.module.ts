@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PatientAddComponent } from './resources/patients/patient-add/patient-add.component';
 import { MedicalFileComponent } from './resources/medical-files/medical-file/medical-file.component';
 import { MedicalFileAddComponent } from './resources/medical-files/medical-file-add/medical-file-add.component';
+import { SortByPipe } from './common/sort-by.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MedicalFileAddComponent } from './resources/medical-files/medical-file-
     PatientAddComponent,
     MedicalFileComponent,
     MedicalFileAddComponent,
+    SortByPipe,
    ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule, FormsModule,
