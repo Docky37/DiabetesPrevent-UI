@@ -5,6 +5,7 @@ import { Visit } from '../../../common/interfaces/visit';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { DiabetesEvaluation } from 'src/app/common/interfaces/diabetes-evaluation';
 
 @Component({
     selector: 'app-medical-file',
@@ -16,6 +17,9 @@ export class MedicalFileComponent implements OnInit {
 
     medicalForm: FormGroup;
     visitsArr = FormArray;
+    diabetesEvalButton: string;
+    color: string;
+    bgcolor: string;
 
     data: Observable<any>;
 
@@ -41,6 +45,9 @@ export class MedicalFileComponent implements OnInit {
             visits: this.formBuilder.array([
             ])
         });
+
+        this.diabetesEvalButton = 'Click for diabetes evaluation';
+
         const id = this.activatedRoute.snapshot.queryParams.patientId;
         console.log(this.activatedRoute);
         this.medicalFileService.show(id).subscribe(
@@ -62,6 +69,37 @@ export class MedicalFileComponent implements OnInit {
                 console.log(res);
                 this.goBackList();
             });
+    }
+
+    diabetesEvalButtonClick(): void {
+        if (this.medicalFile.visits.length > 0) {
+            this.medicalFileService.diabetesEval(this.medicalFile).subscribe(
+                (res: DiabetesEvaluation) => {
+                    console.log(res);
+                    this.diabetesEvalButton = res.evalResult + ' with ' + res.riskFactorsCount + ' risk factors.';
+                    if (res.evalResult === 'Borderline') {
+                        this.color = '#ffffff';
+                        this.bgcolor = '#3ec46d';
+                    } else if (res.evalResult === 'In Danger') {
+                        this.color = '#333333';
+                        this.bgcolor = '#ffff00';
+                    } else if (res.evalResult === 'Early onset') {
+                        this.color = '#ffffff';
+                        this.bgcolor = '#ff0000';
+                    } else {
+                        this.color = '#ffffff';
+                        this.bgcolor = '#99ccee';
+                    }
+                });
+        } else {
+            this.diabetesEvalButton = 'NONE with 0 risk factors.';
+            this.color = '#ffffff';
+            this.bgcolor = '#99ccee';
+        }
+    }
+
+    displayDiabetesEvalReport(): void {
+
     }
 
     goBackList() {

@@ -16,3 +16,27 @@ textarea {
   background-color: white;
   font-size: 30px;
 }
+
+#diabetesEvalButton {
+  background-color: #dddddd;
+  color: #999999;
+}
+
+#left-btn, #right-btn {
+    width: 100px;
+    
+}
+
+#left-btn {
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+#middle-btn {
+    width: 120px;
+}
+
+#right-btn {
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}

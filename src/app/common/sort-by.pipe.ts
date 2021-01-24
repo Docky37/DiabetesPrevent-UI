@@ -8,7 +8,7 @@ import { orderBy } from 'lodash';
 @Pipe({ name: 'sortBy' })
 export class SortByPipe implements PipeTransform {
 
-    transform(value: any[], order = '', column: string = ''): any[] {
+    transform(value: any[], order: string = '', column: string = ''): any[] {
         if (!value || order === '' || !order) { return value; } // no array
         if (value.length <= 1) { return value; } // array with only one item
         if (!column || column === '') {
@@ -18,6 +18,6 @@ export class SortByPipe implements PipeTransform {
                 return value.sort().reverse();
             }
         } // sort 1d array
-        return orderBy(value, [column], [order]);
+        return orderBy(value, [column], true);
     }
 }

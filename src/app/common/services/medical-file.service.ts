@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { MedicalFile } from '../interfaces/medical-file';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
+import { DiabetesEvaluation } from '../interfaces/diabetes-evaluation';
 
 @Injectable({
     providedIn: 'root'
@@ -38,6 +39,17 @@ export class MedicalFileService {
         console.log(medicalFile);
 
         return this.http.put<MedicalFile>(environment.apiBaseUrl2 + 'medicalFiles?patientId=' + medicalFile.patientId, medicalFile, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        })
+            .pipe(catchError(this.handleError));
+    }
+
+    diabetesEval(medicalFile: MedicalFile): Observable<DiabetesEvaluation> {
+        console.log('MedicalFileService - Evaluation');
+        console.log(medicalFile);
+        return this.http.post<DiabetesEvaluation>(environment.apiBaseUrl2 + 'diabetesEvaluations', medicalFile, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
             })

@@ -9,7 +9,7 @@
                     <div id="page-title" class="box">
                         <h1 class="title is-4">Medical file - Add a medical file to the new patient</h1>
                     </div>
-                    <form [formGroup]="medicalForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+                    <form [formGroup]="medicalForm" (ngSubmit)="onSubmit()">
                         <input class="input is-small" id="patientId" formControlName="patientId" disabled="true">
                         <input class="input is-small" id="birthDate" formControlName="birthDate" disabled="true">
                         <div class="columns">
@@ -80,12 +80,10 @@
                             <div class="column">
                             </div>
                             <div class="column is-5">
-                                <button type="submit" id="left-btn" class="button is-success">Save</button>&nbsp;
-
                                 <a routerLink="/patients">
-                                    <button id="right-btn" class="button is-danger">Cancel</button>
+                                    <button id="left-btn" class="button is-danger">Cancel</button>&nbsp;
                                 </a>
-
+                                <button type="submit" id="right-btn" class="button is-success">Save</button>
                             </div>
                         </div>
 
